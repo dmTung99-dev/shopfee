@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/utils.dart';
 import 'package:shopfee/on_board/onboarding_info.dart';
+import 'package:shopfee/route/route_helper.dart';
+import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
   var selectedPageIndex = 0.obs;
@@ -9,11 +11,8 @@ class OnboardingController extends GetxController {
   var pageController = PageController();
 
   forwardAction() {
-    print(selectedPageIndex);
-    print(isLastPage);
     if (isLastPage) {
-      //go to home page
-      selectedPageIndex = 0.obs;
+      Get.toNamed(RouteHelper.getLogin());
     } else
       pageController.nextPage(duration: 300.milliseconds, curve: Curves.ease);
   }
