@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 import 'package:shopfee/author.dart/login_page.dart';
 import 'package:shopfee/author.dart/register_page.dart';
+import 'package:shopfee/home/home_bottom_navigation.dart';
 import 'package:shopfee/home/home_page.dart';
 import 'package:shopfee/on_board/onboarding_page.dart';
 //7h50
@@ -21,7 +22,7 @@ class RouteHelper{
     GetPage(name: introPage, page: ()=>OnboardingPage()),
     GetPage(name: loginPage, page: ()=>LoginPage()),
     GetPage(name: registerPage, page: ()=>RegisterPage()),
-    GetPage(name: homePage, page: ()=>HomePage()),
+    GetPage(name: homePage, page: ()=>HomeNavigationPage()),
 
   ];
 }

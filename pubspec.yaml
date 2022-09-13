@@ -31,6 +31,8 @@ dependencies:
     sdk: flutter
   get: any
   cupertino_icons: ^1.0.0
+  tab_indicator_styler: ^2.0.0
+  persistent_bottom_nav_bar: ^4.0.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
