@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           // home: SplashScreen(),
-          theme: ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 250, 249, 249)),
-          initialRoute: RouteHelper.getHome(),
+          theme: ThemeData(scaffoldBackgroundColor: Color.fromARGB(239, 255, 255, 255)),
+          initialRoute: RouteHelper.getProductDetail(),
           getPages: RouteHelper.routes,
         );
   }
