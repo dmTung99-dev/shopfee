@@ -27,9 +27,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           // home: SplashScreen(),
           theme: ThemeData(scaffoldBackgroundColor: Color.fromARGB(239, 255, 255, 255)),
-          initialRoute: RouteHelper.getProductDetail(),
+          initialRoute: RouteHelper.getCheckout(),
           getPages: RouteHelper.routes,
         );
   }
 }
-
