@@ -8,6 +8,7 @@ import 'package:shopfee/home/home_page.dart';
 import 'package:shopfee/on_board/onboarding_page.dart';
 import 'package:shopfee/payment_method/payment_method.dart';
 import 'package:shopfee/product_detail/product_detail.dart';
+import 'package:shopfee/receipt/receipt_order.dart';
 import 'package:shopfee/voucher/voucher.dart';
 //7h50
 class RouteHelper{
@@ -20,6 +21,7 @@ class RouteHelper{
   static const String checkout = "/checkout";
   static const String paymentMethod = "/paymentMethod";
   static const String voucher = "/voucher";
+  static const String receipt = "/receipt";
 
   static String getIntroPage()=> "$introPage";
   static String getHome()=> "$homePage";
@@ -29,6 +31,7 @@ class RouteHelper{
   static String getCheckout()=> "$checkout";
   static String getPaymentMethod()=> "$paymentMethod";
   static String getVoucher()=> "$voucher";
+  static String getReceipt()=> "$receipt";
 
   static List<GetPage> routes=[
     GetPage(name: introPage, page: ()=>OnboardingPage()),
@@ -39,6 +42,7 @@ class RouteHelper{
     GetPage(name: checkout, page: ()=>Checkout()),
     GetPage(name: paymentMethod, page: ()=>PaymentMethod()),
     GetPage(name: voucher, page: ()=>Voucher()),
+    GetPage(name: receipt, page: ()=>ReceiptOrder()),
 
   ];
 }

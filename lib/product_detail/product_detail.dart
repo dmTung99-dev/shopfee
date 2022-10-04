@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:shopfee/controller/order_controller.dart';
 import 'package:shopfee/product_detail/product_detail_controller.dart';
+import 'package:shopfee/route/route_helper.dart';
 
 class ProductDetailOrder extends StatefulWidget {
   const ProductDetailOrder({Key? key}) : super(key: key);
@@ -13,7 +15,11 @@ class ProductDetailOrder extends StatefulWidget {
 
 class _ProductDetailOrderState extends State<ProductDetailOrder> {
   final _controller = ProductDetailController();
+  final OrderInformation orderInformation = Get.find();
+//  int parsedValue1 = int.tryParse(orderInformation.promo_price);
   int _quantity = 0;
+  num _total = 0;
+  var c;
   String variant = 'Ice';
   String size = 'Regular'; 
   String sugar = 'Normal'; 
@@ -22,6 +28,10 @@ class _ProductDetailOrderState extends State<ProductDetailOrder> {
   @override
   void initState(){
     super.initState();
+    c = int.parse(orderInformation.promo_price);
+    //  print(c);
+// print(parsedValue1)
+    // print('object'+myDouble);
   }
 
   @override
@@ -31,15 +41,21 @@ class _ProductDetailOrderState extends State<ProductDetailOrder> {
 
   void setQuantity(bool isIncrement) {
     if(isIncrement ){
+      print(c);
+      _quantity = checkQuantity(_quantity+1);
       setState(() {
-        _quantity = checkQuantity(_quantity+1);
+        _quantity;
+        _total = _quantity * c ;
       });
-      print("inscrement"+_quantity.toString());
+      print("_total"+_total.toString());
+      print("_quantity"+_quantity.toString());
     }else{
       setState(() {
         _quantity = checkQuantity(_quantity-1);
+        _total = _quantity * c ;
       });
-       print("decrement"+_quantity.toString());
+       print("_total"+_total.toString());
+      print("_quantity"+_quantity.toString());
     }
   }
 
@@ -117,7 +133,6 @@ class _ProductDetailOrderState extends State<ProductDetailOrder> {
             ),
             child: Row(
               children: [
-                Icon(Icons.arrow_back, size: 24,color: Colors.black,),
                 SizedBox(width: 20),
                 Text('Customize Order', style: TextStyle(color: Colors.black)),
               ],
@@ -173,7 +188,7 @@ class _ProductDetailOrderState extends State<ProductDetailOrder> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text('Coffee Milk',style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                              Text('Rp25.000',style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
+                              Text(orderInformation.promo_price,style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
                             ],
                           ),
                           SizedBox(height: 15),
@@ -549,17 +564,23 @@ class _ProductDetailOrderState extends State<ProductDetailOrder> {
                 children: [
                   Text('Total', style: TextStyle(fontSize: 16)),
                   SizedBox(height: 15),
-                  Text('Rp. 25.000', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
+                  Text(_total.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
                 ],
               ),
-              Container(
-                height: 55,
-                width: 150,
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.all(Radius.circular(16))
+              GestureDetector(
+                onTap: () {
+                  Get.put(OrderInformation()).updateTotalPrice(total_proce: _total, quantity: _quantity);
+                  Get.toNamed(RouteHelper.getCheckout());
+                },
+                child: Container(
+                  height: 55,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.brown,
+                    borderRadius: BorderRadius.all(Radius.circular(16))
+                  ),
+                  child: Center(child: Text('Add Order', style: TextStyle(fontSize: 18, color: Colors.white))),
                 ),
-                child: Center(child: Text('Add Order', style: TextStyle(fontSize: 18, color: Colors.white))),
               )
             ],
           ),

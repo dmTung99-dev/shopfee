@@ -2,9 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:shopfee/controller/order_controller.dart';
 import 'package:shopfee/home/discount_controller.dart';
 import 'package:shopfee/home/fillter_controller.dart';
 import 'package:shopfee/home/products_controller.dart';
+import 'package:shopfee/route/route_helper.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 
@@ -19,8 +22,9 @@ class _HomePageState extends State<HomePage> {
    final _controller = DiscountController();
    final _filerController = FilterController();
    final _productController = ProductController();
+   final _orderController = OrderInformation();
 
-    final  _scrollController = ScrollController();
+  final  _scrollController = ScrollController();
 
    
   @override
@@ -159,80 +163,87 @@ class _HomePageState extends State<HomePage> {
                                   shrinkWrap: true,
                                   itemCount: _productController.productPages.length,
                                   itemBuilder: (context,index){
-                                    return SizedBox(
-                                      height: 100,
-                                      width: double.infinity,
-                                      
-                                      child: Row(
-                                        children: [
-                                          Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color: Colors.grey[100],
-                                                  borderRadius: BorderRadius.circular(50)
-                                                ),
-                                                child: Image.asset(
-                                                    _productController.productPages[index].imageAsset),
-                                              ),
-                                              Positioned(
-                                                bottom: 0,
-                                                child: Container(
-                                                  padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Get.put(OrderInformation()).updatePrice(
+                                          promo_price: _productController.productPages[index].promo_price );
+                                        Get.toNamed(RouteHelper.getProductDetail());
+                                      },
+                                      child: SizedBox(
+                                        height: 100,
+                                        width: double.infinity,
+                                        
+                                        child: Row(
+                                          children: [
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Container(
                                                   decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(15),
-                                                    color: Colors.white
+                                                    color: Colors.grey[100],
+                                                    borderRadius: BorderRadius.circular(50)
                                                   ),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(Icons.star, color: Colors.yellow),
-                                                      Text(_productController.productPages[index].rating, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold))
-                                                    ],
-                                                  )
+                                                  child: Image.asset(
+                                                      _productController.productPages[index].imageAsset),
                                                 ),
-                                              )
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 8),
-                                            child: SizedBox(
-                                              width: 378,
-                                              child: Column(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                      // mainAxisSize: MainAxisSize.max,
-                                                      children: [
-                                                        Text(_productController.productPages[index].tilte, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                                                        Padding(
-                                                          padding: const EdgeInsets.only(left: 20),
-                                                          child: Text(_productController.productPages[index].promo_price, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                                                        ),
-                                                      ],
+                                                Positioned(
+                                                  bottom: 0,
+                                                  child: Container(
+                                                    padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(15),
+                                                      color: Colors.white
                                                     ),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(Icons.star, color: Colors.yellow),
+                                                        Text(_productController.productPages[index].rating, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold))
+                                                      ],
+                                                    )
                                                   ),
-                                                  Padding(
-                                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                                    child: Row(
-                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                      //  mainAxisSize: MainAxisSize.max,
-                                                      children: [
-                                                        Text(_productController.productPages[index].content, ),
-                                                        Padding(
-                                                          padding: const EdgeInsets.only(left: 20),
-                                                          child: Text(_productController.productPages[index].price, style: TextStyle(decoration: TextDecoration.lineThrough),),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
+                                                )
+                                              ],
                                             ),
-                                          )
-                                        ],
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 8),
+                                              child: SizedBox(
+                                                width: 378,
+                                                child: Column(
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        // mainAxisSize: MainAxisSize.max,
+                                                        children: [
+                                                          Text(_productController.productPages[index].tilte, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                                          Padding(
+                                                            padding: const EdgeInsets.only(left: 20),
+                                                            child: Text(_productController.productPages[index].promo_price, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                                      child: Row(
+                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        //  mainAxisSize: MainAxisSize.max,
+                                                        children: [
+                                                          Text(_productController.productPages[index].content, ),
+                                                          Padding(
+                                                            padding: const EdgeInsets.only(left: 20),
+                                                            child: Text(_productController.productPages[index].price, style: TextStyle(decoration: TextDecoration.lineThrough),),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     );
                                   }

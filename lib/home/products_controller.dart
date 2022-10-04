@@ -10,21 +10,21 @@ class ProductController extends GetxController {
   var pageController = PageController();
 
   List<ProductInfo> productPages = [
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', ''),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', ''),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', ''),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', ''),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
-    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Rp38.000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '14400', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', ''),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', ''),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', ''),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', ''),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
+    ProductInfo('assets/coffeeMilk.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35500', '38000'),
   ];
 }
 

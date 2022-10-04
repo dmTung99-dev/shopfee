@@ -10,7 +10,7 @@ class ProductDetailController extends GetxController {
   var pageController = PageController();
 
   List<ProductDetailInfo> productDetailPages = [
-    ProductDetailInfo('assets/coffeeMilk1.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', 'Rp35.500', 'Coffee'),
+    ProductDetailInfo('assets/coffeeMilk1.png', 'Coffee Milk', 'Steamed milk with mocha and caramel sauces', '4.9', '35.500', 'Coffee'),
   ];
 }
 
